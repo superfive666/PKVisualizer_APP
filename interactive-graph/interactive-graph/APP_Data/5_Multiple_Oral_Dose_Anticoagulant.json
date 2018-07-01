@@ -1,0 +1,30 @@
+{
+    "GraphSettings": {},
+    "GraphParameters": {
+        "Gender": "Male",
+        "Race": "Chinese",
+        "Age": 30,
+        "BodyWeight": 65,
+        "Height": 1.8,
+        "Dose": 400,
+        "Tau": 12,
+        "VolumeDistribution": {
+            "Mean": 3120,
+            "StandardDeviation": 624
+        },
+        "ExtractionRate": {
+            "Mean": 0.9,
+            "StandardDeviation": 0.18
+        },
+        "Ka": {
+            "Mean": 0.8,
+            "StandardDeviation": 0.16
+        },
+        "Clearance": {
+            "Mean": 2740, 
+            "StandardDeviation": 548
+        },
+        "HorizontalMax": 100, 
+        "VerticalMax": 0.4
+    }
+}
