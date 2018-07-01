@@ -1,0 +1,20 @@
+{
+    "GraphSetting": {
+
+    },
+    "GraphParameters": {
+        "BodyWeight": 47,
+        "VolumeDistribution": {
+            "Mean": 4,
+            "StandardDeviation": 1
+        },
+        "Dose": 1.5,
+        "InfusionRate": 1.0,
+        "Clearance": {
+            "Mean": 40,
+            "StandardDeviation": 6
+        },
+        "HorizontalMax": 20,
+        "VerticalMax": 0.04
+    }
+}

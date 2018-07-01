@@ -1,0 +1,20 @@
+{
+    "GraphSetting": {},
+    "GraphParameters": {
+        "BodyWeight": 65,
+        "VolumeDistribution": {
+            "Mean": 1.1,
+            "StandardDeviation": 0.4
+        },
+        "Tau": 8,
+        "Infusion": 2,
+        "Dose": 500,
+        "Clearance": {
+            "Mean": 100,
+            "StandardDeviation": 16
+        },
+        "MIC": 1,
+        "HorizontalMax": 60,
+        "VerticalMax": 100
+    }
+}
