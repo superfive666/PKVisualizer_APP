@@ -95,6 +95,7 @@
     <Folder Include="Resources\Images\" />
     <Folder Include="APP_Config\" />
     <Folder Include="APP_Data\" />
+    <Folder Include="APP_Temp\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -112,6 +113,15 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="APP_Data\1_Continuous_Intravenous_Analgesic.json" />
+    <BundleResource Include="APP_Data\2_Multiple_Dose_IV_Infusion.json" />
+    <BundleResource Include="APP_Data\3_Multiple_Oral_Dose_NSAID.json" />
+    <BundleResource Include="APP_Data\4_Multiple_Oral_Dose_Antithrombotic.json" />
+    <BundleResource Include="APP_Data\5_Multiple_Oral_Dose_Anticoagulant.json" />
+    <BundleResource Include="APP_Data\6_Multiple_Oral_Dose_Antibiotics.json" />
+    <BundleResource Include="APP_Data\8_Phenytoin_Formulation.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
