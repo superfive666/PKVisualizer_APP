@@ -55,7 +55,7 @@ namespace interactivegraph.Entities
                     {
                         string readResult = sr.ReadToEnd();
                         JObject profile = JObject.Parse(readResult);
-
+                                        
 
                     }
                 }
