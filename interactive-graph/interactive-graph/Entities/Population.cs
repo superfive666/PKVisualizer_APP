@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace interactivegraph.Entities
 {
@@ -45,17 +46,67 @@ namespace interactivegraph.Entities
 
         private void SetupPopulation(GraphType type)
         {
+
+            //To-do: change the backend architecture
             try
             {
                 ActivePatient = rand.Next(20);
-
                 using (FileStream fs = File.Open(Mapper(type), FileMode.Open))
                 {
                     using (StreamReader sr = new StreamReader(fs))
                     {
                         string readResult = sr.ReadToEnd();
                         JObject profile = JObject.Parse(readResult);
-                                        
+                        for (var i = 0; i < 20; i++)
+                        {
+                            var patient = new Patient();
+                            patient.Type = type;
+                            foreach (var prop in patient.GetType().GetProperties())
+                            {
+                                var path = (string) Type.GetType("JsonPath")
+                                                        .GetProperty(prop.Name)
+                                                        .GetValue(null);
+                                if (prop.GetType() == typeof(int))
+                                {
+                                    patient.GetType()
+                                           .GetProperty(prop.Name)
+                                           .SetValue(patient, (int?)profile.SelectToken(path) ?? 0);
+                                }
+                                else if (prop.GetType() == typeof(double))
+                                {
+                                    patient.GetType()
+                                           .GetProperty(prop.Name)
+                                           .SetValue(patient, (double?)profile.SelectToken(path) ?? 0);
+                                }
+                                else if (prop.GetType() == typeof(string))
+                                {
+                                    var value = profile.SelectToken(path);
+                                    if (value != null)
+                                    {
+                                        patient.GetType()
+                                               .GetProperty(prop.Name)
+                                               .SetValue(patient, value.ToString());
+                                    }
+                                }
+                            }
+
+                            //Medical Condition
+                            var condition = new MedicalCondition();
+                            foreach (var prop in condition.GetType().GetProperties())
+                            {
+                                var root = (string)Type.GetType("JsonPath").GetProperty(prop.Name).GetValue(null);
+                                if (prop.GetType() == typeof(DistributionVariable))
+                                {
+                                    var mean = (double) profile.SelectToken(string.Format("{0}.{1}", root, JsonPath.Mean));
+                                    var std = (double) profile.SelectToken(string.Format("{0}.{1}", root, JsonPath.StandardDeviation));
+                                    prop.SetValue(condition, new DistributionVariable(mean, std));
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        }
 
                     }
                 }
