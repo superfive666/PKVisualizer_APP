@@ -19,8 +19,6 @@ namespace interactivegraph.Base_Entities
             StandardDeviation = std;
             AdjustedMean = Calculator.AdjustedMean(mean, std);
             AdjustedStdDev = Calculator.AdjustedStandardDev(mean, std);
-
-            FinalValue = LogNormal.InvCDF(AdjustedMean, AdjustedStdDev, Population.rand.NextDouble());
         }
         #endregion
 
@@ -29,7 +27,5 @@ namespace interactivegraph.Base_Entities
 
         public double AdjustedMean { get; private set; }
         public double AdjustedStdDev { get; private set; }
-
-        public double FinalValue { get; private set; }
     }
 }

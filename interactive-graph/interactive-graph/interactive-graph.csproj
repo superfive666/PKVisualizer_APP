@@ -105,8 +105,10 @@
   <ItemGroup>
     <Folder Include="APP_Config\" />
     <Folder Include="APP_Temp\" />
+    <Folder Include="Graph Data Source\" />
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Images\" />
+    <Folder Include="View Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
