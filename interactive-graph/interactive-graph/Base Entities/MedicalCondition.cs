@@ -11,14 +11,6 @@ namespace interactivegraph.Base_Entities
         /// </summary>
         public MedicalCondition() { }
         #endregion
-
-        public double Dose { get; set; }
-        public int Tau { get; set; }
-        public int InfusionRate { get; set; }
-        public int Washout { get; set; }
-        public int MIC { get; set; }
-        public double VMAX { get; set; }
-        public double KM { get; set; }
         public DistributionVariable VolumeDistribution { get; set; }
         public DistributionVariable ExtractionRate { get; set; }
         public DistributionVariable Ka { get; set; }

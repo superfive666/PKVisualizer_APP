@@ -121,10 +121,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base Entities\DistributionVariable.cs" />
-    <Compile Include="Base Entities\GraphSettings.cs" />
+    <Compile Include="Entities\GraphSettings.cs" />
     <Compile Include="Base Entities\MedicalCondition.cs" />
     <Compile Include="Base Entities\Patient.cs" />
-    <Compile Include="Base Entities\PopulationProfile.cs" />
+    <Compile Include="Base Entities\ServiceConstants.cs" />
     <Compile Include="Entities\Population.cs" />
     <Compile Include="Helpers\Calculator.cs" />
     <Compile Include="Base Entities\GraphType.cs" />

@@ -1,6 +1,4 @@
 ﻿using interactivegraph.Helpers;
-using interactivegraph.Entities;
-using MathNet.Numerics.Distributions;
 
 namespace interactivegraph.Base_Entities
 {

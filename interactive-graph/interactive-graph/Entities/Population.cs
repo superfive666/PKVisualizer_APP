@@ -1,9 +1,10 @@
 ﻿using interactivegraph.Base_Entities;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using MathNet.Numerics.Distributions;
 
 namespace interactivegraph.Entities
 {
@@ -12,17 +13,22 @@ namespace interactivegraph.Entities
         #region Public constructor
         public Population(GraphType type)
         {
+            Graph_Type = type;
             SetupPopulation(type);
         }
         #endregion
         
         public List<Patient> Patients { get; private set; }
+
+        public MedicalCondition Condition { get; private set; }
         
         public List<List<double>> SinglePatientGraph { get; set; }
 
         public List<List<double>> PopulationGraph { get; set; }
 
         public GraphSettings Setting { get; set; }
+
+        public GraphType Graph_Type { get; private set; }
 
         public int ActivePatient { get;set; }
 
@@ -46,8 +52,6 @@ namespace interactivegraph.Entities
 
         private void SetupPopulation(GraphType type)
         {
-
-            //To-do: change the backend architecture
             try
             {
                 ActivePatient = rand.Next(20);
@@ -57,57 +61,40 @@ namespace interactivegraph.Entities
                     {
                         string readResult = sr.ReadToEnd();
                         JObject profile = JObject.Parse(readResult);
-                        for (var i = 0; i < 20; i++)
+
+                        Condition = new MedicalCondition();
+                        foreach (var prop in Condition.GetType().GetProperties())
                         {
-                            var patient = new Patient();
-                            patient.Type = type;
-                            foreach (var prop in patient.GetType().GetProperties())
-                            {
-                                var path = (string) Type.GetType("JsonPath")
-                                                        .GetProperty(prop.Name)
-                                                        .GetValue(null);
-                                if (prop.GetType() == typeof(int))
-                                {
-                                    patient.GetType()
-                                           .GetProperty(prop.Name)
-                                           .SetValue(patient, (int?)profile.SelectToken(path) ?? 0);
-                                }
-                                else if (prop.GetType() == typeof(double))
-                                {
-                                    patient.GetType()
-                                           .GetProperty(prop.Name)
-                                           .SetValue(patient, (double?)profile.SelectToken(path) ?? 0);
-                                }
-                                else if (prop.GetType() == typeof(string))
-                                {
-                                    var value = profile.SelectToken(path);
-                                    if (value != null)
-                                    {
-                                        patient.GetType()
-                                               .GetProperty(prop.Name)
-                                               .SetValue(patient, value.ToString());
-                                    }
-                                }
-                            }
-
-                            //Medical Condition
-                            var condition = new MedicalCondition();
-                            foreach (var prop in condition.GetType().GetProperties())
-                            {
-                                var root = (string)Type.GetType("JsonPath").GetProperty(prop.Name).GetValue(null);
-                                if (prop.GetType() == typeof(DistributionVariable))
-                                {
-                                    var mean = (double) profile.SelectToken(string.Format("{0}.{1}", root, JsonPath.Mean));
-                                    var std = (double) profile.SelectToken(string.Format("{0}.{1}", root, JsonPath.StandardDeviation));
-                                    prop.SetValue(condition, new DistributionVariable(mean, std));
-                                }
-                                else
-                                {
-
-                                }
-                            }
+                            var conditionProfile = profile.SelectToken(JsonPath.MedicalCondition);
+                            var item = conditionProfile.SelectToken(prop.Name);
+                            var variable = new DistributionVariable((double?)item.SelectToken(JsonPath.Mean) ?? 0,
+                                                                    (double?)item.SelectToken(JsonPath.StandardDeviation) ?? 0);
+                            Condition.GetType().GetProperty(prop.Name).SetValue(Condition, variable);
                         }
 
+                        for (var i = 0; i < 20; i++)
+                        {
+                            var patientProfile = JsonConvert.SerializeObject(profile.SelectToken(JsonPath.Patient));
+                            var patient = JsonConvert.DeserializeObject<Patient>(patientProfile);
+                            patient.Bioavailability = LogNormal.InvCDF(Condition.Bioavailability.AdjustedMean,
+                                                                       Condition.Bioavailability.AdjustedStdDev,
+                                                                       rand.NextDouble());
+                            patient.ExtractionRate = LogNormal.InvCDF(Condition.Clearance.AdjustedMean,
+                                                                      Condition.Clearance.AdjustedStdDev,
+                                                                      rand.NextDouble());
+                            patient.Ka = LogNormal.InvCDF(Condition.Ka.AdjustedMean,
+                                                          Condition.Ka.AdjustedStdDev,
+                                                          rand.NextDouble());
+                            patient.VolumeDistribution = LogNormal.InvCDF(Condition.VolumeDistribution.AdjustedMean,
+                                                                          Condition.VolumeDistribution.AdjustedStdDev,
+                                                                          rand.NextDouble());
+                            patient.Clearance = LogNormal.InvCDF(Condition.Clearance.AdjustedMean,
+                                                                 Condition.Clearance.AdjustedStdDev,
+                                                                 rand.NextDouble());
+                        }
+
+                        var graphProfile = JsonConvert.SerializeObject(profile.SelectToken(JsonPath.Graph));
+                        Setting = JsonConvert.DeserializeObject<GraphSettings>(graphProfile);
                     }
                 }
             } catch (Exception ex)

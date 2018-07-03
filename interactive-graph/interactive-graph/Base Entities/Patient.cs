@@ -30,6 +30,21 @@ namespace interactivegraph.Base_Entities
 
         [JsonProperty("Height")]
         public double Height { get; set; }
+
+        [JsonProperty("VMAX")]
+        public double VMAX { get; set; }
+
+        [JsonProperty("KM")]
+        public double KM { get; set; }
+
+        [JsonProperty("InfusionRate")]
+        public int InfusionRate { get; set; }
+
+        [JsonProperty("Washout")]
+        public int Washout { get; set; }
+
+        [JsonProperty("MIC")]
+        public int MIC { get; set; }
         #endregion
 
         #region Non-Json properties
@@ -56,12 +71,6 @@ namespace interactivegraph.Base_Entities
 
         [JsonIgnore]
         public double ExtractionRate { get; set; }
-
-        [JsonIgnore]
-        public double VMAX { get; set; }
-
-        [JsonIgnore]
-        public double KM { get; set; }
-
+        #endregion
     }
 }

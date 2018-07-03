@@ -43,5 +43,14 @@
 
         public const string HorizontalMax = "GraphParameters.HorizontalMax";
         public const string VerticalMax = "GraphParameters.VerticalMax";
+
+        public const string Patient = "Patient";
+        public const string MedicalCondition = "MedicalCondition";
+        public const string Graph = "Graph";
+    }
+
+    public static class ContentTypes
+    {
+        public const string Json = "applicataion/json";
     }
 }
