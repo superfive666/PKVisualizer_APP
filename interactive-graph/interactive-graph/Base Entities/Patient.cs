@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Reflection;
 
 namespace interactivegraph.Base_Entities
 {
@@ -51,26 +52,36 @@ namespace interactivegraph.Base_Entities
 
         [JsonProperty("Tau")]
         public double Tau { get; set; }
-        #endregion
 
-        #region Non-Json properties
-        [JsonIgnore]
+        [JsonProperty("BioAvailability")]
         public double Bioavailability { get; set; }
 
-        [JsonIgnore]
+        [JsonProperty("Clearance")]
         public double Clearance { get; set; }
 
-        [JsonIgnore]
+        [JsonProperty("Ka")]
         public double Ka { get; set; }
 
-        [JsonIgnore]
+        [JsonProperty("Ke")]
         public double Ke { get; set; }
 
-        [JsonIgnore]
+        [JsonProperty("VolumeDistribution")]
         public double VolumeDistribution { get; set; }
 
-        [JsonIgnore]
+        [JsonProperty("ExtractionRate")]
         public double ExtractionRate { get; set; }
         #endregion
+
+        public void Clone(Patient patient)
+        {
+            var type = patient.GetType();
+            var properties = type.GetProperties();
+            foreach (var prop in properties)
+            {
+                type.GetProperty(prop.Name)
+                    .SetValue(this, type.GetProperty(prop.Name)
+                    .GetValue(patient));
+            }
+        }
     }
 }

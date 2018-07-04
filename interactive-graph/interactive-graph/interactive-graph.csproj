@@ -136,13 +136,27 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="APP_Data\1_Continuous_Intravenous_Analgesic.json" />
-    <BundleResource Include="APP_Data\2_Multiple_Dose_IV_Infusion.json" />
-    <BundleResource Include="APP_Data\3_Multiple_Oral_Dose_NSAID.json" />
-    <BundleResource Include="APP_Data\4_Multiple_Oral_Dose_Antithrombotic.json" />
-    <BundleResource Include="APP_Data\5_Multiple_Oral_Dose_Anticoagulant.json" />
-    <BundleResource Include="APP_Data\6_Multiple_Oral_Dose_Antibiotics.json" />
-    <BundleResource Include="APP_Data\8_Phenytoin_Formulation.json" />
+    <Content Include="APP_Data\1_Continuous_Intravenous_Analgesic.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="APP_Data\2_Multiple_Dose_IV_Infusion.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="APP_Data\3_Multiple_Oral_Dose_NSAID.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="APP_Data\4_Multiple_Oral_Dose_Antithrombotic.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="APP_Data\5_Multiple_Oral_Dose_Anticoagulant.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="APP_Data\6_Multiple_Oral_Dose_Antibiotics.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="APP_Data\8_Phenytoin_Formulation.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

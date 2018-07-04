@@ -14,11 +14,16 @@ namespace interactivegraph.Entities
         public Population(GraphType type)
         {
             Graph_Type = type;
+            Patients = new List<Patient>();
+            DefaultPopulation = new List<Patient>(20);
             SetupPopulation(type);
+            SaveDefault();
         }
         #endregion
         
         public List<Patient> Patients { get; private set; }
+
+        public List<Patient> DefaultPopulation { get; set; }
 
         public MedicalCondition Condition { get; private set; }
         
@@ -30,7 +35,9 @@ namespace interactivegraph.Entities
 
         public GraphType Graph_Type { get; private set; }
 
-        public int ActivePatient { get;set; }
+        public int ActivePatient { get; set; }
+
+        public int DefaultPatient { get; set; }
 
         #region Initialization methods for population
         public static Random rand = new Random();
@@ -76,22 +83,9 @@ namespace interactivegraph.Entities
                         {
                             var patientProfile = JsonConvert.SerializeObject(profile.SelectToken(JsonPath.Patient));
                             var patient = JsonConvert.DeserializeObject<Patient>(patientProfile);
-                            patient.Bioavailability = LogNormal.InvCDF(Condition.Bioavailability.AdjustedMean,
-                                                                       Condition.Bioavailability.AdjustedStdDev,
-                                                                       rand.NextDouble());
-                            patient.ExtractionRate = LogNormal.InvCDF(Condition.Clearance.AdjustedMean,
-                                                                      Condition.Clearance.AdjustedStdDev,
-                                                                      rand.NextDouble());
-                            patient.Ka = LogNormal.InvCDF(Condition.Ka.AdjustedMean,
-                                                          Condition.Ka.AdjustedStdDev,
-                                                          rand.NextDouble());
-                            patient.VolumeDistribution = LogNormal.InvCDF(Condition.VolumeDistribution.AdjustedMean,
-                                                                          Condition.VolumeDistribution.AdjustedStdDev,
-                                                                          rand.NextDouble());
-                            patient.Clearance = LogNormal.InvCDF(Condition.Clearance.AdjustedMean,
-                                                                 Condition.Clearance.AdjustedStdDev,
-                                                                 rand.NextDouble());
+                            Patients.Add(patient);
                         }
+                        GeneratePatients();
 
                         var graphProfile = JsonConvert.SerializeObject(profile.SelectToken(JsonPath.Graph));
                         Setting = JsonConvert.DeserializeObject<GraphSettings>(graphProfile);
@@ -100,6 +94,33 @@ namespace interactivegraph.Entities
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void GeneratePatients()
+        {
+            foreach(var patient in Patients)
+            {
+                patient.Bioavailability = LogNormal.InvCDF(Condition.Bioavailability.AdjustedMean,
+                                                                       Condition.Bioavailability.AdjustedStdDev,
+                                                                       rand.NextDouble());
+                patient.ExtractionRate = LogNormal.InvCDF(Condition.Clearance.AdjustedMean,
+                                                          Condition.Clearance.AdjustedStdDev,
+                                                          rand.NextDouble());
+                patient.Ka = LogNormal.InvCDF(Condition.Ka.AdjustedMean,
+                                              Condition.Ka.AdjustedStdDev,
+                                              rand.NextDouble());
+                patient.VolumeDistribution = LogNormal.InvCDF(Condition.VolumeDistribution.AdjustedMean,
+                                                              Condition.VolumeDistribution.AdjustedStdDev,
+                                                              rand.NextDouble());
+                patient.Clearance = LogNormal.InvCDF(Condition.Clearance.AdjustedMean,
+                                                     Condition.Clearance.AdjustedStdDev,
+                                                     rand.NextDouble());
+                var actualKe = Math.Min(0.9999,
+                               patient.Clearance * 60 / patient.VolumeDistribution / 1000);
+                actualKe = Graph_Type == GraphType.Continuous_Intravenous_Analgesic ?
+                           actualKe * patient.BodyWeight : actualKe;
+                patient.Ke = Math.Log(1) - Math.Log(1 - actualKe);
             }
         }
 
@@ -113,22 +134,45 @@ namespace interactivegraph.Entities
 
             throw new NotImplementedException();
         }
+
+        private void SaveDefault()
+        {
+            DefaultPatient = ActivePatient;
+            for (var i = 1; i < 20; i++)
+            {
+                DefaultPopulation[i].Clone(Patients[i]);
+            }
+        }
+
+        private void RetrieveDefault()
+        {
+            ActivePatient = DefaultPatient;
+            for (var i = 1; i < 20; i++)
+            {
+                Patients[i].Clone(DefaultPopulation[i]);
+            }
+        }
         #endregion
 
         #region Public methods
-        public void SwitchPatient()
+        public void SwitchPatient(int i)
         {
-            throw new NotImplementedException();
+            ActivePatient = (ActivePatient + 20 + i) % 20;
         }
 
         public void ChangePopulation()
         {
-            throw new NotImplementedException();
+            GeneratePatients();
         }
 
-        public void OptimizeCondition(MedicalCondition condition)
+        public void OptimizeCondition(Patient p)
         {
-            throw new NotImplementedException();
+            foreach(var patient in Patients)
+            {
+                patient.Dose = p.Dose;
+                patient.Tau = p.Tau;
+                patient.InfusionRate = p.InfusionRate;
+            }
         }
         #endregion
 
