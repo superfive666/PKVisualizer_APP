@@ -1,30 +1,48 @@
 {
-    "GraphSettings": {},
-    "GraphParameters": {
-        "Gender": "Male",
-        "Race": "Chinese",
-        "Age": 30,
-        "BodyWeight": 65,
-        "Height": 1.8,
-        "Dose": 75,
-        "Tau": 24,
-        "VolumeDistribution": {
-            "Mean": 12.6,
-            "StandardDeviation": 0.06
+    "Patient": 
+    {
+        "Name": "",
+        "Gender": "",
+        "Race": "",
+        "Age": "",
+        "BodyWeight": "",
+        "Height": "",
+        "VMAX": "",
+        "KM": "",
+        "InfusionRate": "",
+        "Washout": "",
+        "MIC": ""
+    },
+    "MedicalCondition": 
+    {
+        "VolumeDistribution": 
+        {
+            "Mean": "",
+            "StandardDeviation": ""
         },
-        "ExtractionRate": {
-            "Mean": 0.3,
-            "StandardDeviation": 0.06
+        "ExtractionRate": 
+        {
+            "Mean": "",
+            "StandardDeviation": ""
         },
-        "Ka": {
-            "Mean": 1.38,
-            "StandardDeviation": 0.276
+        "Ka":
+        {
+            "Mean": "",
+            "StandardDeviation": ""
         },
-        "Clearance": {
-            "Mean": 130, 
-            "StandardDeviation": 26
-        },
-        "HorizontalMax": 100,
-        "VerticalMax": 4.5
+      "Clearance": {
+        "Mean": "",
+        "StandardDeviation": ""
+      },
+        "Bioavailability":
+        {
+            "Mean": "",
+            "StandardDeviation": ""
+        }
+    },
+    "Graph": 
+    {
+        "HorizontalMax": "",
+        "VerticalMax": ""
     }
 }

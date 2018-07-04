@@ -1,25 +1,43 @@
 {
-  "Patient": {
-    "Name": "string",
-    "BodyWeight": 65,
-    "Height":  1.8
-  },
-  "GraphSetting": {
-
-  },
-  "GraphParameters": {
-    "BodyWeight": 47,
+    "Patient": 
+    {
+        "Name": "",
+        "Gender": "",
+        "Race": "",
+        "Age": "",
+        "BodyWeight": "",
+        "Height": "",
+        "VMAX": "",
+        "KM": "",
+        "InfusionRate": "",
+        "Washout": "",
+        "MIC": ""
+    },
+  "MedicalCondition": {
     "VolumeDistribution": {
-      "Mean": 4,
-      "StandardDeviation": 1
+      "Mean": "",
+      "StandardDeviation": ""
     },
-    "Dose": 1.5,
-    "InfusionRate": 1.0,
+    "ExtractionRate": {
+      "Mean": "",
+      "StandardDeviation": ""
+    },
+    "Ka": {
+      "Mean": "",
+      "StandardDeviation": ""
+    },
     "Clearance": {
-      "Mean": 40,
-      "StandardDeviation": 6
+      "Mean": "",
+      "StandardDeviation": ""
     },
-    "HorizontalMax": 20,
-    "VerticalMax": 0.04
-  }
+    "Bioavailability": {
+      "Mean": "",
+      "StandardDeviation": ""
+    }
+  },
+    "Graph": 
+    {
+        "HorizontalMax": "",
+        "VerticalMax": ""
+    }
 }
