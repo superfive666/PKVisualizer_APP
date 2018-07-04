@@ -1,48 +1,50 @@
 {
     "Patient": 
     {
-        "Name": "",
-        "Gender": "",
-        "Race": "",
-        "Age": "",
-        "BodyWeight": "",
-        "Height": "",
-        "VMAX": "",
-        "KM": "",
-        "InfusionRate": "",
-        "Washout": "",
-        "MIC": ""
+        "Name": "String",
+        "Gender": "Male",
+        "Race": "Chinese",
+        "Age": 26,
+        "BodyWeight": 65,
+        "Height": 1.80,
+        "VMAX": 0.03,
+        "KM": 0.009,
+        "InfusionRate": 0,
+        "Washout": 0,
+        "Dose": 250,
+        "Tau": 12,
+        "MIC": 0
     },
     "MedicalCondition": 
     {
         "VolumeDistribution": 
         {
-            "Mean": "",
-            "StandardDeviation": ""
+            "Mean": 50000,
+            "StandardDeviation": 8333.333333
         },
         "ExtractionRate": 
         {
-            "Mean": "",
-            "StandardDeviation": ""
+            "Mean": 0,
+            "StandardDeviation": 0
         },
         "Ka":
         {
-            "Mean": "",
-            "StandardDeviation": ""
+            "Mean": 1,
+            "StandardDeviation": 0.16666667
         },
       "Clearance": {
-        "Mean": "",
-        "StandardDeviation": ""
+        "Mean": 0,
+        "StandardDeviation": 0
       },
         "Bioavailability":
         {
-            "Mean": "",
-            "StandardDeviation": ""
+            "Mean": 0.9,
+            "StandardDeviation": 0.15
         }
     },
     "Graph": 
     {
-        "HorizontalMax": "",
-        "VerticalMax": ""
+        "HorizontalMax": 300,
+        "VerticalMax": 0
     }
 }

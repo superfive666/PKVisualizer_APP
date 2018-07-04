@@ -45,6 +45,12 @@ namespace interactivegraph.Base_Entities
 
         [JsonProperty("MIC")]
         public int MIC { get; set; }
+
+        [JsonProperty("Dose")]
+        public double Dose { get; set; }
+
+        [JsonProperty("Tau")]
+        public double Tau { get; set; }
         #endregion
 
         #region Non-Json properties
@@ -59,12 +65,6 @@ namespace interactivegraph.Base_Entities
 
         [JsonIgnore]
         public double Ke { get; set; }
-
-        [JsonIgnore]
-        public double Dose { get; set; }
-
-        [JsonIgnore]
-        public double Tau { get; set; }
 
         [JsonIgnore]
         public double VolumeDistribution { get; set; }
