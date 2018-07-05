@@ -5,6 +5,7 @@ namespace interactivegraph.Helpers
 {
     public static class Calculator
     {
+        #region Public calculator functions
         public static double AdjustedMean(double m, double s)
         {
             var a1 = m * m;
@@ -40,7 +41,9 @@ namespace interactivegraph.Helpers
 
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region Private calculation functions
         private static double Graph1(double t, Patient patient)
         {
             var a1 = patient.Dose * patient.InfusionRate;
@@ -86,9 +89,8 @@ namespace interactivegraph.Helpers
 
             var abs = CalculateABS.Invoke();
 
-
             return 0;
         }
-
+        #endregion
     }
 }
