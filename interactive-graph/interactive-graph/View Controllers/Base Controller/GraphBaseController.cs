@@ -14,6 +14,8 @@ namespace interactivegraph.View_Controllers.Base_Controller
     {
         #region View controller attributes here
         public Population GraphPopulation { get; set; }
+
+        public GraphForm Graph_Form { get; set; }
         #endregion
 
         public override void ViewDidLoad()

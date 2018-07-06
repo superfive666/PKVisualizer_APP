@@ -72,6 +72,14 @@ namespace interactivegraph.Base_Entities
         public double ExtractionRate { get; set; }
         #endregion
 
+        #region Static counters
+        public static double T = 0;
+
+        public static double PrevValue = 0;
+
+        public static readonly double TimeInterval = 0.1;
+        #endregion
+
         public void Clone(Patient patient)
         {
             var type = patient.GetType();

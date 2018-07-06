@@ -74,22 +74,28 @@ namespace interactivegraph.Helpers
 
         private static double Graph8(double t, Patient patient)
         {
-            Func<double> CalculateABS = () =>
+            double CalculateABS(double ti)
             {
+                var a1 = patient.Bioavailability * patient.Dose;
+                var a2 = 1 - Math.Exp(-patient.Ka * ti);
+                var a3 = a1 * a2 / patient.VolumeDistribution;
+                return ti < patient.Tau? 
+                       a3 : a3 + CalculateABS(ti - patient.Tau);
+            }
 
-
-                return 1.0;
+            Func<double, double> CalculateELI = (p) =>
+            {
+                var a1 = patient.VMAX * p * 1000;
+                var a2 = (patient.KM + p) * patient.VolumeDistribution;
+                return Patient.TimeInterval * a1 / a2;
             };
 
-            Func<double> CalculateELI = () =>
-            {
+            var abs = CalculateABS(t);
+            Patient.T += t % patient.Tau == 0 ?
+                         CalculateELI.Invoke(abs) :
+                         CalculateELI.Invoke(Patient.PrevValue);
 
-                return 1.0;
-            };
-
-            var abs = CalculateABS.Invoke();
-
-            return 0;
+            return abs - Patient.T;
         }
         #endregion
     }
