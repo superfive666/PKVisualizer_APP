@@ -174,6 +174,11 @@ namespace interactivegraph.Entities
                 patient.InfusionRate = p.InfusionRate;
             }
         }
+
+        public void BackToDefault()
+        {
+
+        }
         #endregion
 
     }
