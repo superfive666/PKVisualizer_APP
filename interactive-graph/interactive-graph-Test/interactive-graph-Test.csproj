@@ -8,10 +8,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers Test\GraphBaseControllerTest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Graph Data Source Test\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Controllers Test\GraphBaseControllerTest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\interactive-graph\interactive-graph.csproj" />
   </ItemGroup>
 
 </Project>
