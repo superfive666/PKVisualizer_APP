@@ -6,6 +6,7 @@ using System.Text;
 using Foundation;
 using UIKit;
 using interactivegraph.View_Controllers.Base_Controller;
+using interactivegraph.Base_Entities;
 
 namespace interactivegraph.View_Controllers.Graph_Controller
 {
@@ -14,7 +15,6 @@ namespace interactivegraph.View_Controllers.Graph_Controller
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
             // Perform any additional setup after loading the view, typically from a nib.
 
         }

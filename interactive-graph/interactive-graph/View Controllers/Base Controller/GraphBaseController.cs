@@ -7,6 +7,7 @@ using Foundation;
 using UIKit;
 using interactivegraph.Entities;
 using interactivegraph.Base_Entities;
+using SciChart.iOS.Charting;
 
 namespace interactivegraph.View_Controllers.Base_Controller
 {
@@ -16,47 +17,70 @@ namespace interactivegraph.View_Controllers.Base_Controller
         public Population GraphPopulation { get; set; }
 
         public GraphForm Graph_Form { get; set; }
+
+        private SCIChartSurface _surface;
         #endregion
-
-        public override void ViewDidLoad()
-        {
-            base.ViewDidLoad();
-
-            // Perform any additional setup after loading the view, typically from a nib.
-
-        }
-
-        public override void DidReceiveMemoryWarning()
-        {
-            base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
-
-
-        }
 
         #region Common graphical behaviours
         protected void SwitchUpPatient()
         {
             GraphPopulation.SwitchPatient(1);
-            //To-do: refresh graph
+            RefreshGraph();
         }
 
         protected void ChangePopulation()
         {
             GraphPopulation.ChangePopulation();
-            //To-do: refresh graph
+            RefreshGraph();
         }
 
         protected void OptimizeCondition(Patient _patient)
         {
             GraphPopulation.OptimizeCondition(_patient);
-            //To-do: refresh graph
+            RefreshGraph();
         }
 
         protected void BackToDefault()
         {
             GraphPopulation.BackToDefault();
-            //To-do: refresh graph
+            RefreshGraph();
+        }
+
+        protected void ToggleGraphForm()
+        {
+            Graph_Form = Graph_Form == GraphForm.AllPopulationView ?
+                         GraphForm.SinglePatientView :
+                         GraphForm.AllPopulationView;
+
+            RefreshGraph();
+        }
+
+        protected void RefreshGraph()
+        {
+            void ConstructSinglePatientView(int i)
+            {
+
+                throw new NotImplementedException();
+            }
+
+            void ConstructAllPopulationView()
+            {
+
+                throw new NotImplementedException();
+            }
+
+            switch(Graph_Form)
+            {
+                case GraphForm.SinglePatientView:
+                               ConstructSinglePatientView(GraphPopulation.ActivePatient);
+                               break;
+                case GraphForm.AllPopulationView:
+                               ConstructAllPopulationView();
+                               break;
+                default: throw new InvalidOperationException("Invalid type of graph.");
+            }
+
+            throw new NotImplementedException();
         }
 
         protected virtual void ShowPatientData() { }

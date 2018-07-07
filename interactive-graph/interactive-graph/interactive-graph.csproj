@@ -80,6 +80,9 @@
     <Reference Include="MathNet.Numerics, Version=4.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.4.5.1\lib\netstandard2.0\MathNet.Numerics.dll</HintPath>
     </Reference>
+    <Reference Include="SciChart.iOS.Charting, Version=2.0.0.453, Culture=neutral, PublicKeyToken=b55dd9efe817e823, processorArchitecture=MSIL">
+      <HintPath>..\packages\SciChart.iOS.2.1.0.769\lib\Xamarin.iOS10\SciChart.iOS.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -108,7 +111,7 @@
     <Folder Include="Graph Data Source\" />
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Images\" />
-    <Folder Include="View Controllers\" />
+    <Folder Include="View Controllers\Page Controller\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -121,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base Entities\DistributionVariable.cs" />
+    <Compile Include="Base Entities\GraphForm.cs" />
     <Compile Include="Entities\GraphSettings.cs" />
     <Compile Include="Base Entities\MedicalCondition.cs" />
     <Compile Include="Base Entities\Patient.cs" />
@@ -130,6 +134,15 @@
     <Compile Include="Base Entities\GraphType.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="View Controllers\Base Controller\GraphBaseController.cs" />
+    <Compile Include="View Controllers\Graph Controller\CIAnalgesicController.cs" />
+    <Compile Include="View Controllers\Graph Controller\MDIAntibioticsController.cs" />
+    <Compile Include="View Controllers\Graph Controller\MODAntibioticsController.cs" />
+    <Compile Include="View Controllers\Graph Controller\MODAnticoagulantController.cs" />
+    <Compile Include="View Controllers\Graph Controller\MODAntithromboticController.cs" />
+    <Compile Include="View Controllers\Graph Controller\MODNasaidController.cs" />
+    <Compile Include="View Controllers\Graph Controller\PhenytoinFormulationController.cs" />
+    <Compile Include="View Controllers\SurfaceViewController.cs" />
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>

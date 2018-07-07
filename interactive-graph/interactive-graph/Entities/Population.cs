@@ -126,10 +126,10 @@ namespace interactivegraph.Entities
 
         private void GenerateGraphData()
         {
+            Patient.T = 0; Patient.PrevValue = 0;
+
             //To-do: generate one population data
-
-
-            //To-do: generate single patient data (might be redundant)
+            //To-do: update prev value every time generate the patient.
 
 
             throw new NotImplementedException();
