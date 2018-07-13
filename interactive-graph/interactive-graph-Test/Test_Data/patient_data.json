@@ -1,0 +1,15 @@
+﻿{
+  "Name": "String",
+  "Gender": "String",
+  "Race": "String",
+  "Age": 27,
+  "BodyWeight": 47,
+  "Height": 1.80,
+  "VMAX": 0,
+  "KM": 0,
+  "InfusionRate": 1.0,
+  "Washout": 0,
+  "MIC": 0,
+  "Dose": 1.5,
+  "Tau": 0
+}

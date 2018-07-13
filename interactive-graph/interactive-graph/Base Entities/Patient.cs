@@ -39,7 +39,7 @@ namespace interactivegraph.Base_Entities
         public double KM { get; set; }
 
         [JsonProperty("InfusionRate")]
-        public int InfusionRate { get; set; }
+        public double InfusionRate { get; set; }
 
         [JsonProperty("Washout")]
         public int Washout { get; set; }
@@ -91,5 +91,24 @@ namespace interactivegraph.Base_Entities
                     .GetValue(patient));
             }
         }
+
+        #region Override object equal method
+        public override bool Equals(object obj)
+        {
+            var _patient = (Patient)obj;
+            var type = _patient.GetType();
+            var properties = type.GetProperties();
+            foreach (var prop in properties)
+            {
+                var value = type.GetProperty(prop.Name)
+                                .GetValue(_patient);
+                if (type.GetProperty(prop.Name).GetValue(this).ToString() != value.ToString())
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        #endregion
     }
 }
