@@ -45,4 +45,27 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {592CE0D2-4A2B-49F4-838F-EA02FCDAE56B}
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = text/x-web
+		$0.TextStylePolicy = $2
+		$2.FileWidth = 80
+		$2.TabsToSpaces = True
+		$2.scope = text/plain
+		$0.TextStylePolicy = $3
+		$3.inheritsSet = null
+		$3.scope = application/vnd.apple-xcode-storyboard
+		$0.XmlFormattingPolicy = $4
+		$4.inheritsSet = null
+		$4.scope = application/vnd.apple-xcode-storyboard
+		$0.TextStylePolicy = $5
+		$5.inheritsSet = null
+		$5.scope = application/xml
+		$0.XmlFormattingPolicy = $6
+		$6.scope = application/xml
+		$0.StandardHeader = $7
+		$0.VersionControlPolicy = $8
+	EndGlobalSection
 EndGlobal
