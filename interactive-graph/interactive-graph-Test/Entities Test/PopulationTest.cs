@@ -1,15 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.IO;
 using Xunit;
-using Xunit.Abstractions;
-using Xunit.Extensions;
-using Xunit.Sdk;
+using interactivegraph.Entities;
+using interactivegraph.Base_Entities;
+using interactivegraph.Helpers;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace interactive_graph_Test.Entities_Test
 {
     public class PopulationTest
     {
+        Population _population;
 
+        [Fact]
+        public void PopulationAttributes_Test ()
+        {
+            
+            _population = new Population(GraphType.Continuous_Intravenous_Analgesic);
+            Assert.NotNull(_population.Patients);
+        }
     }
 }

@@ -1,0 +1,45 @@
+{
+    "Patient": 
+    {
+        "Name": "String",
+        "Gender": "Male",
+        "Race": "Chinese",
+        "Age": 27,
+        "BodyWeight": 47,
+        "Height": 1.80,
+        "VMAX": 0,
+        "KM": 0,
+        "InfusionRate": 1.0,
+        "Washout": 0,
+        "MIC": 0,
+        "Dose": 1.5,
+        "Tau":  0
+    },
+    "MedicalCondition": {
+      "VolumeDistribution": {
+          "Mean": 4,
+          "StandardDeviation": 1
+      },
+      "ExtractionRate": {
+          "Mean": 0,
+          "StandardDeviation": 0
+      },
+      "Ka": {
+          "Mean": 0,
+          "StandardDeviation": 0
+      },
+      "Clearance": {
+          "Mean": 40,
+          "StandardDeviation": 6
+      },
+      "Bioavailability": {
+          "Mean": 0,
+          "StandardDeviation": 0
+      }
+    },
+    "Graph": 
+    {
+        "HorizontalMax": 0,
+        "VerticalMax": 0
+    }
+}

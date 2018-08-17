@@ -19,6 +19,40 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="App_Data\1_Continuous_Intravenous_Analgesic.json" />
+    <None Remove="App_Data\2_Multiple_Dose_IV_Infusion.json" />
+    <None Remove="App_Data\3_Multiple_Oral_Dose_NSAID.json" />
+    <None Remove="App_Data\4_Multiple_Oral_Dose_Antithrombotic.json" />
+    <None Remove="App_Data\5_Multiple_Oral_Dose_Anticoagulant.json" />
+    <None Remove="App_Data\6_Multiple_Oral_Dose_Antibiotics.json" />
+    <None Remove="App_Data\8_Phenytoin_Formulation.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App_Data\1_Continuous_Intravenous_Analgesic.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\2_Multiple_Dose_IV_Infusion.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\3_Multiple_Oral_Dose_NSAID.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\4_Multiple_Oral_Dose_Antithrombotic.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\5_Multiple_Oral_Dose_Anticoagulant.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\6_Multiple_Oral_Dose_Antibiotics.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\8_Phenytoin_Formulation.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="xunit" Version="2.3.1" />

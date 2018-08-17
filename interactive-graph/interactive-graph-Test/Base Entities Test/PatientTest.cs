@@ -1,19 +1,12 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.IO;
 using Xunit;
-using Xunit.Abstractions;
-using Xunit.Extensions;
-using Xunit.Sdk;
 using interactivegraph.Base_Entities;
-using interactive_graph_Test;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace interactive_graph_Test.Base_Entities_Test
 {
-    public class PatientTest
+    public partial class PatientTest
     {
         Patient _patient;
 
