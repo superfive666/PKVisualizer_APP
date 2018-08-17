@@ -7,11 +7,55 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DefineConstants>TRACE;DEBUG;__IOS__;__MOBILE__;__UNIFIED__;ENABLE_TEST_CLOUD;</DefineConstants>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Controllers Test\GraphBaseControllerTest.cs" />
   </ItemGroup>
 
   <ItemGroup>
+
+    <None Remove="App_Data\1_Continuous_Intravenous_Analgesic.json" />
+    <None Remove="App_Data\2_Multiple_Dose_IV_Infusion.json" />
+    <None Remove="App_Data\3_Multiple_Oral_Dose_NSAID.json" />
+    <None Remove="App_Data\4_Multiple_Oral_Dose_Antithrombotic.json" />
+    <None Remove="App_Data\5_Multiple_Oral_Dose_Anticoagulant.json" />
+    <None Remove="App_Data\6_Multiple_Oral_Dose_Antibiotics.json" />
+    <None Remove="App_Data\8_Phenytoin_Formulation.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App_Data\1_Continuous_Intravenous_Analgesic.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\2_Multiple_Dose_IV_Infusion.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\3_Multiple_Oral_Dose_NSAID.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\4_Multiple_Oral_Dose_Antithrombotic.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\5_Multiple_Oral_Dose_Anticoagulant.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\6_Multiple_Oral_Dose_Antibiotics.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\8_Phenytoin_Formulation.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
@@ -25,5 +69,13 @@
   <ItemGroup>
     <None Include="Controllers Test\GraphBaseControllerTest.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\interactive-graph\interactive-graph.csproj" />
+  </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Test_Data\patient_data.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

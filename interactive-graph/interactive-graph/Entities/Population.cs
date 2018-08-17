@@ -138,8 +138,9 @@ namespace interactivegraph.Entities
         private void SaveDefault()
         {
             DefaultPatient = ActivePatient;
-            for (var i = 1; i < 20; i++)
+            for (var i = 0; i < 20; i++)
             {
+                DefaultPopulation.Add(new Patient());
                 DefaultPopulation[i].Clone(Patients[i]);
             }
         }
