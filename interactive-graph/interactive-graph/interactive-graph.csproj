@@ -147,10 +147,6 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="CIAnalgesicController.cs" />
-    <Compile Include="CIAnalgesicController.designer.cs">
-      <DependentUpon>CIAnalgesicController.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="APP_Data\1_Continuous_Intravenous_Analgesic.json">
