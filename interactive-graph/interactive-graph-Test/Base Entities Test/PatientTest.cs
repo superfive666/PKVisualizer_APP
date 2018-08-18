@@ -16,8 +16,7 @@ namespace interactive_graph_Test.Base_Entities_Test
             {
                 using (var sr = new StreamReader(fs))
                 {
-                    var data = JObject.Parse(sr.ReadToEnd());
-                    _patient = JsonConvert.DeserializeObject<Patient>(JsonConvert.SerializeObject(data));
+                    _patient = JsonConvert.DeserializeObject<Patient>(sr.ReadToEnd());
                 }
             }
         }

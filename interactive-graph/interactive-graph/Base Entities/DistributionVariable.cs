@@ -28,7 +28,7 @@ namespace interactivegraph.Base_Entities
 
         public override bool Equals(object obj)
         {
-            var _variable = (DistributionVariable)obj;
+            var _variable = obj as DistributionVariable;
             var type = _variable.GetType();
             var properties = type.GetProperties();
             foreach(var prop in properties)
@@ -43,6 +43,18 @@ namespace interactivegraph.Base_Entities
             }
 
             return true;
+        }
+
+        public override int GetHashCode()
+        {
+            int hash = 13;
+
+            hash = (hash * 7) + Mean.GetHashCode();
+            hash = (hash * 7) + StandardDeviation.GetHashCode();
+            hash = (hash * 7) + AdjustedMean.GetHashCode();
+            hash = (hash * 7) + AdjustedStdDev.GetHashCode();
+
+            return hash;
         }
     }
 }

@@ -19,8 +19,7 @@ namespace interactive_graph_Test.Entities_Test
                 {
                     using (var sr = new StreamReader(fs))
                     {
-                        var data = JObject.Parse(sr.ReadToEnd());
-                        _graphSettings = JsonConvert.DeserializeObject<GraphSettings>(data.ToString());
+                        _graphSettings = JsonConvert.DeserializeObject<GraphSettings>(sr.ReadToEnd());
                     }
                 }
             } catch (Exception ex)
