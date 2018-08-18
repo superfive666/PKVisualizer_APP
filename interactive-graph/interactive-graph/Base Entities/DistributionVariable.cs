@@ -25,5 +25,24 @@ namespace interactivegraph.Base_Entities
 
         public double AdjustedMean { get; private set; }
         public double AdjustedStdDev { get; private set; }
+
+        public override bool Equals(object obj)
+        {
+            var _variable = (DistributionVariable)obj;
+            var type = _variable.GetType();
+            var properties = type.GetProperties();
+            foreach(var prop in properties)
+            {
+                var value = type.GetProperty(prop.Name)
+                                .GetValue(_variable);
+                if (type.GetProperty(prop.Name)
+                        .GetValue(this).ToString() != value.ToString())
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

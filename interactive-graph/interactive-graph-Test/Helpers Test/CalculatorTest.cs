@@ -11,6 +11,11 @@ namespace interactive_graph_Test.Helpers_Test
 {
     public class CalculatorTest
     {
+        private void SerializePatientData ()
+        {
+
+        }
+
         [Fact]
         public void AdjustedMean_Test()
         {
@@ -37,6 +42,10 @@ namespace interactive_graph_Test.Helpers_Test
         public void Graph_1_Concentration_Test()
         {
 
+            var a1 = patient.Dose * patient.InfusionRate;
+            var a2 = patient.Ke * patient.VolumeDistribution;
+            var a3 = 1 - Math.Exp(-patient.Ke * t);
+            a1 * a3 / a2;
             Assert.True(true);
         }
 

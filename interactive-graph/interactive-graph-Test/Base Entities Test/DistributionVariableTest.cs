@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 using interactivegraph.Base_Entities;
-using Xunit.Abstractions;
-using Xunit.Extensions;
-using Xunit.Sdk;
 using interactivegraph.Helpers;
 
 namespace interactive_graph_Test.Base_Entities_Test
@@ -28,6 +22,16 @@ namespace interactive_graph_Test.Base_Entities_Test
             Assert.Equal(expectedStd, _variable.StandardDeviation);
             Assert.Equal(adjustedMean, _variable.AdjustedMean);
             Assert.Equal(adjustedStd, _variable.AdjustedStdDev);
+        }
+
+        [Fact]
+        public void DistributionVariable_Equal_Test ()
+        {
+            _variable = new DistributionVariable(10, 1);
+            var equalVariable = new DistributionVariable(10, 1);
+            var differentVariable = new DistributionVariable(100, 10);
+            Assert.True(_variable.Equals(equalVariable));
+            Assert.False(_variable.Equals(differentVariable));
         }
     }
 }
