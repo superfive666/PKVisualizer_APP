@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="213">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,14 +14,91 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="611" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/startup_background.jpg" adjustsImageSizeForAccessibilityContentSizeCategory="YES">
+                                <rect key="frame" x="-18" y="0.0" width="709" height="375"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="414" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text="PHARMACOKINETICS VISUALIZER">
+                                <rect key="frame" x="29" y="20" width="618" height="57"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <color key="highlightedColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="612" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" usesAttributedText="YES" editable="NO">
+                                <rect key="frame" x="29" y="85" width="316" height="270"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="PK Visualizer is a suite of user-friendly programmes that allow visualization of typical multi-dose pharmacokinetic profiles, in common clinically recognizable scenarios. With simple toggles, it allows display of the potential population variability in pharmacokinetics for that particular drug.">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="&#xA; &#xA;">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="0.22352941176470589" green="0.44705882352941179" blue="0.60392156862745094" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="It should be noted that ">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="PK Visualizer is not meant to be predictive of the pharmacokinetics of any particular drug, nor should it be used to predict dosage regimens">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="17"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=". The objective for PK Visualizer is primarily to allow the user to develop an insight into the potential of variability in pharmacokinetics within the population, and to have a feel of how one can make rational dosage adjustments in accordance with the patient's pharmacokinetics.">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1398" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="557" y="290" width="76" height="54"/>
+                                <state key="normal" backgroundImage="Icons/big-right-arrow-icon-png-10.png"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1399" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text="Find out more">
+                                <rect key="frame" x="401" y="304" width="158" height="25"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="0.75686274509803919" blue="0.074509803921568626" alpha="1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="22"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1400" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/Actual_Patient_Draw_NSAID.png">
+                                <rect key="frame" x="366" y="102" width="267" height="180"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" image="YES"/>
+                        </accessibility>
                     </view>
+                    <connections>
+                        <segue id="2013" destination="1927" kind="custom"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-200" y="-114"/>
+            <point key="canvasLocation" x="-1115" y="529"/>
         </scene>
         <scene sceneID="212">
             <objects>
@@ -31,7 +108,7 @@
                         <viewControllerLayoutGuide type="bottom" id="211"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="214">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="1"/>
                     </view>
@@ -40,5 +117,263 @@
             </objects>
             <point key="canvasLocation" x="-192" y="407"/>
         </scene>
+        <scene sceneID="1926">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="1927" sceneMemberID="viewController">
+                    <connections>
+                        <segue id="1948" destination="1931" kind="custom"/>
+                        <segue id="1979" destination="1951" kind="custom"/>
+                        <segue id="2067" destination="2016" kind="custom"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1928" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-851" y="1086"/>
+        </scene>
+        <scene sceneID="1930">
+            <objects>
+                <viewController id="1931" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1933"/>
+                        <viewControllerLayoutGuide type="bottom" id="1934"/>
+                    </layoutGuides>
+                    <view contentMode="scaleToFill" id="1937" key="view">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2069" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/startup_background.jpg" adjustsImageSizeForAccessibilityContentSizeCategory="YES">
+                                <rect key="frame" x="-18" y="0.0" width="709" height="375"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2072" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text="PHARMACOKINETICS VISUALIZER">
+                                <rect key="frame" x="29" y="20" width="618" height="57"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <color key="highlightedColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="2075" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" usesAttributedText="YES" editable="NO">
+                                <rect key="frame" x="29" y="85" width="596" height="263"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="The ">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="21"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Pharmacokinetics Visualizer">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica-BoldOblique" family="Helvetica" size="21"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" not only simulates a pharmacokinetic profile, but also empirically simulates the potential pharmacokinetic variability in a theoretical population. ">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="21"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="&#xA;&#xA;">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="0.047058823529411764" green="0.23137254901960785" blue="0.37254901960784315" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="21"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="The principle objective is to allow the user to develop an insight into the  potential pharmacokinetic variability that exists in any population, and between patients, and through this, learn to adapt therapeutics to differing needs of individual patients.">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="21"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                            </textView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="2076" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="318" y="338" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1935" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1366" y="1828"/>
+        </scene>
+        <scene sceneID="1950">
+            <objects>
+                <viewController id="1951" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1953"/>
+                        <viewControllerLayoutGuide type="bottom" id="1954"/>
+                    </layoutGuides>
+                    <view contentMode="scaleToFill" id="1952" key="view">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2070" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/startup_background.jpg" adjustsImageSizeForAccessibilityContentSizeCategory="YES">
+                                <rect key="frame" x="-18" y="0.0" width="709" height="375"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2073" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text="PHARMACOKINETICS VISUALIZER">
+                                <rect key="frame" x="29" y="20" width="618" height="57"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <color key="highlightedColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="2077" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="318" y="338" width="39" height="37"/>
+                            </pageControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="2079" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" usesAttributedText="YES" editable="NO">
+                                <rect key="frame" x="40" y="174" width="596" height="165"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="The pharmacokinetic profile from a randomly generated patient drawn from a theoretical population of 20 similar patients is displayed. A simple toggle allows the user to flip between a single patient and population display. This provides useful insight into potential interindividual variability.">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="22"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2084" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/Individual_Plot.png">
+                                <rect key="frame" x="248" y="76" width="170" height="90"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2085" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/Population_Plot.png">
+                                <rect key="frame" x="466" y="76" width="170" height="90"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2093" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Icons/double-circular-arrow.png">
+                                <rect key="frame" x="421" y="102" width="44" height="38"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2094" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/Crowd_Green.png">
+                                <rect key="frame" x="46" y="86" width="73" height="70"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2095" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/Man_Single.png">
+                                <rect key="frame" x="163" y="85" width="61" height="60"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2096" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Icons/double-circular-arrow.png">
+                                <rect key="frame" x="118" y="102" width="44" height="38"/>
+                            </imageView>
+                        </subviews>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1955" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-417" y="1828"/>
+        </scene>
+        <scene sceneID="2015">
+            <objects>
+                <viewController id="2016" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2018"/>
+                        <viewControllerLayoutGuide type="bottom" id="2019"/>
+                    </layoutGuides>
+                    <view contentMode="scaleToFill" id="2017" key="view">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2071" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/startup_background.jpg" adjustsImageSizeForAccessibilityContentSizeCategory="YES">
+                                <rect key="frame" x="-18" y="0.0" width="709" height="375"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2074" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text="PHARMACOKINETICS VISUALIZER">
+                                <rect key="frame" x="29" y="20" width="618" height="57"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <color key="highlightedColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="2078" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="318" y="338" width="39" height="37"/>
+                            </pageControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="2086" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" usesAttributedText="YES" editable="NO">
+                                <rect key="frame" x="263" y="85" width="363" height="70"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="The user can also select any of the other 20 patients.">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="22"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="2087" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" usesAttributedText="YES" editable="NO">
+                                <rect key="frame" x="263" y="163" width="363" height="70"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Another toggle allows generation of another population of 20 patients.">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="22"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="2088" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" usesAttributedText="YES" editable="NO">
+                                <rect key="frame" x="263" y="247" width="363" height="92"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="The dosage builder allows the user to practice at designing an optimal dosage regimen.">
+                                        <attributes>
+                                            <color key="NSColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                            <font key="NSFont" name="Helvetica" family="Helvetica" size="22"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2097" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/Crowd_Green.png">
+                                <rect key="frame" x="20" y="100" width="129" height="80"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2098" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/Woman_Single.png">
+                                <rect key="frame" x="184" y="90" width="61" height="60"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2099" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Icons/double-circular-arrow.png">
+                                <rect key="frame" x="147" y="101" width="44" height="38"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2100" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/Crowd_Yellow.png">
+                                <rect key="frame" x="20" y="221" width="129" height="80"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2101" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Icons/double-circular-arrow.png">
+                                <rect key="frame" x="62" y="2187" width="44" height="38"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2102" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Icons/double-circular-arrow.png">
+                                <rect key="frame" x="62" y="179" width="44" height="38"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2103" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text="Next">
+                                <rect key="frame" x="489" y="338" width="61" height="25"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="0.75686274509803919" blue="0.074509803921568626" alpha="1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="22"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2104" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="543" y="324" width="76" height="54"/>
+                                <state key="normal" backgroundImage="Icons/big-right-arrow-icon-png-10.png"/>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2020" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="342" y="1828"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Images/startup_background.jpg" width="852" height="480"/>
+        <image name="Icons/big-right-arrow-icon-png-10.png" width="400" height="400"/>
+        <image name="Images/Actual_Patient_Draw_NSAID.png" width="1204" height="673"/>
+        <image name="Icons/double-circular-arrow.png" width="256" height="256"/>
+        <image name="Images/Crowd_Green.png" width="478" height="331"/>
+        <image name="Images/Crowd_Yellow.png" width="478" height="331"/>
+        <image name="Images/Individual_Plot.png" width="629" height="354"/>
+        <image name="Images/Man_Single.png" width="437" height="437"/>
+        <image name="Images/Population_Plot.png" width="641" height="358"/>
+        <image name="Images/Woman_Single.png" width="385" height="386"/>
+    </resources>
 </document>

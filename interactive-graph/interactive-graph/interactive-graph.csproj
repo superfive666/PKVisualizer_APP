@@ -171,5 +171,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\startup_background.jpg" />
+    <BundleResource Include="Resources\Icons\big-right-arrow-icon-png-10.png" />
+    <BundleResource Include="Resources\Images\Actual_Patient_Draw_NSAID.png" />
+    <BundleResource Include="Resources\Icons\double-circular-arrow.png" />
+    <BundleResource Include="Resources\Images\Crowd_Green.png" />
+    <BundleResource Include="Resources\Images\Crowd_Yellow.png" />
+    <BundleResource Include="Resources\Images\Individual_Plot.png" />
+    <BundleResource Include="Resources\Images\Man_Single.png" />
+    <BundleResource Include="Resources\Images\Population_Plot.png" />
+    <BundleResource Include="Resources\Images\Woman_Single.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
