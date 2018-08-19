@@ -73,6 +73,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1398" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="557" y="290" width="76" height="54"/>
                                 <state key="normal" backgroundImage="Icons/big-right-arrow-icon-png-10.png"/>
+                                <connections>
+                                    <segue id="2458" destination="1927" kind="show"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1399" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text="Find out more">
                                 <rect key="frame" x="401" y="304" width="158" height="25"/>
@@ -92,9 +95,6 @@
                             <accessibilityTraits key="traits" image="YES"/>
                         </accessibility>
                     </view>
-                    <connections>
-                        <segue id="2013" destination="1927" kind="custom"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -355,13 +355,38 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2104" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="543" y="324" width="76" height="54"/>
                                 <state key="normal" backgroundImage="Icons/big-right-arrow-icon-png-10.png"/>
+                                <connections>
+                                    <segue id="2490" destination="2138" kind="show"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2020" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342" y="1828"/>
+            <point key="canvasLocation" x="421" y="1828"/>
+        </scene>
+        <scene sceneID="2137">
+            <objects>
+                <viewController id="2138" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2135"/>
+                        <viewControllerLayoutGuide type="bottom" id="2136"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2139">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2166" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Images/startup_background.jpg" adjustsImageSizeForAccessibilityContentSizeCategory="YES">
+                                <rect key="frame" x="-18" y="0.0" width="709" height="375"/>
+                            </imageView>
+                        </subviews>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2140" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1039" y="2636"/>
         </scene>
     </scenes>
     <resources>

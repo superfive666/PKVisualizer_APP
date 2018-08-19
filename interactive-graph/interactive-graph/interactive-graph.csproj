@@ -112,10 +112,12 @@
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="View Controllers\Page Controller\" />
+    <Folder Include="Data Source\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="View Controllers\IntroductionPageController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -147,6 +149,11 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="View Controllers\IntroductionPageController.cs" />
+    <Compile Include="View Controllers\IntroductionPageController.designer.cs">
+      <DependentUpon>IntroductionPageController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data Source\IntroductionPageViewDataSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="APP_Data\1_Continuous_Intravenous_Analgesic.json">
