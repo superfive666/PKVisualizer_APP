@@ -13,7 +13,7 @@
         "Washout": 0,
         "MIC": 0,
         "Dose": 1.5,
-        "Tau":  0
+        "Tau":  12
     },
     "MedicalCondition": {
       "VolumeDistribution": {

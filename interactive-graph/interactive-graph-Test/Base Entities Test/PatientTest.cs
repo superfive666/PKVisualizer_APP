@@ -16,14 +16,13 @@ namespace interactive_graph_Test.Base_Entities_Test
             {
                 using (var sr = new StreamReader(fs))
                 {
-                    var data = JObject.Parse(sr.ReadToEnd());
-                    _patient = JsonConvert.DeserializeObject<Patient>(JsonConvert.SerializeObject(data));
+                    _patient = JsonConvert.DeserializeObject<Patient>(sr.ReadToEnd());
                 }
             }
         }
 
         [Fact]
-        public void ClonePatient_Test()
+        public void Patient_Clone_Test()
         {
             InitPatient();
             var newPatient = new Patient();
@@ -32,7 +31,7 @@ namespace interactive_graph_Test.Base_Entities_Test
         }
 
         [Fact]
-        public void PatientSerialization_Test()
+        public void Patient_Serialization_Test()
         {
             InitPatient();
             JObject data;
@@ -60,7 +59,7 @@ namespace interactive_graph_Test.Base_Entities_Test
         }
 
         [Fact]
-        public void PatientStaticCounter_Test()
+        public void Patient_StaticCounter_Test()
         {
             var testValue = 1.5;
             Patient.PrevValue = testValue;
@@ -72,13 +71,32 @@ namespace interactive_graph_Test.Base_Entities_Test
         }
 
         [Fact]
-        public void PatientNotEqual_Test()
+        public void Patient_NotEqual_Test()
         {
             InitPatient();
             var newPatient = new Patient();
             newPatient.Clone(_patient);
             newPatient.Name = "New Name";
             Assert.False(newPatient.Equals(_patient));
+        }
+
+        [Fact]
+        public void Patient_Attribute_Test ()
+        {
+            _patient = new Patient();
+            _patient.Bioavailability = 0.1;
+            _patient.Ka = 0.1;
+            _patient.Ke = 0.1;
+            _patient.Clearance = 0.1;
+            _patient.ExtractionRate = 0.1;
+            _patient.VolumeDistribution = 0.1;
+
+            Assert.Equal(0.1, _patient.Bioavailability);
+            Assert.Equal(0.1, _patient.Ka);
+            Assert.Equal(0.1, _patient.Ke);
+            Assert.Equal(0.1, _patient.Clearance);
+            Assert.Equal(0.1, _patient.ExtractionRate);
+            Assert.Equal(0.1, _patient.VolumeDistribution);
         }
     }
 }

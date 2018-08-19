@@ -39,7 +39,7 @@ namespace interactivegraph.Helpers
                 case GraphType.Phenytoin_Formulation: return Graph8(t, patient);
             }
 
-            throw new NotImplementedException();
+            return 0;
         }
         #endregion
 
@@ -83,17 +83,17 @@ namespace interactivegraph.Helpers
                        a3 : a3 + CalculateABS(ti - patient.Tau);
             }
 
-            Func<double, double> CalculateELI = (p) =>
+            double CalculateELI(double p)
             {
                 var a1 = patient.VMAX * p * 1000;
                 var a2 = (patient.KM + p) * patient.VolumeDistribution;
                 return Patient.TimeInterval * a1 / a2;
-            };
+            }
 
             var abs = CalculateABS(t);
             Patient.T += t % patient.Tau == 0 ?
-                         CalculateELI.Invoke(abs) :
-                         CalculateELI.Invoke(Patient.PrevValue);
+                         CalculateELI(abs) :
+                         CalculateELI(Patient.PrevValue);
 
             return abs - Patient.T;
         }

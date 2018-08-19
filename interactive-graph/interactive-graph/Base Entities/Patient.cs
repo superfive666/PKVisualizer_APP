@@ -95,7 +95,7 @@ namespace interactivegraph.Base_Entities
         #region Override object equal method
         public override bool Equals(object obj)
         {
-            var _patient = (Patient)obj;
+            var _patient = obj as Patient;
             var type = _patient.GetType();
             var properties = type.GetProperties();
             foreach (var prop in properties)
@@ -108,6 +108,21 @@ namespace interactivegraph.Base_Entities
                 }
             }
             return true;
+        }
+
+        public override int GetHashCode()
+        {
+            int hash = 13;
+
+            hash = (hash * 7) + Dose.GetHashCode();
+            hash = (hash * 7) + Tau.GetHashCode();
+            hash = (hash * 7) + Bioavailability.GetHashCode();
+            hash = (hash * 7) + Ka.GetHashCode();
+            hash = (hash * 7) + Clearance.GetHashCode();
+            hash = (hash * 7) + ExtractionRate.GetHashCode();
+            hash = (hash * 7) + VolumeDistribution.GetHashCode();
+
+            return base.GetHashCode();
         }
         #endregion
     }

@@ -138,17 +138,18 @@ namespace interactivegraph.Entities
         private void SaveDefault()
         {
             DefaultPatient = ActivePatient;
-            for (var i = 0; i < 20; i++)
+            foreach(var patient in Patients)
             {
-                DefaultPopulation.Add(new Patient());
-                DefaultPopulation[i].Clone(Patients[i]);
+                var newPatient = new Patient();
+                newPatient.Clone(patient);
+                DefaultPopulation.Add(newPatient);
             }
         }
 
         private void RetrieveDefault()
         {
             ActivePatient = DefaultPatient;
-            for (var i = 1; i < 20; i++)
+            for (var i = 0; i < 20; i++)
             {
                 Patients[i].Clone(DefaultPopulation[i]);
             }
@@ -178,7 +179,7 @@ namespace interactivegraph.Entities
 
         public void BackToDefault()
         {
-
+            RetrieveDefault();
         }
         #endregion
 
