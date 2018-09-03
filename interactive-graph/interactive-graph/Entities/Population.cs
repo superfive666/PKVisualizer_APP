@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using MathNet.Numerics.Distributions;
+using interactivegraph.Helpers;
+using System.Linq;
 
 namespace interactivegraph.Entities
 {
@@ -14,10 +16,12 @@ namespace interactivegraph.Entities
         public Population(GraphType type)
         {
             Graph_Type = type;
+            First = true;
             Patients = new List<Patient>();
             DefaultPopulation = new List<Patient>(20);
             SetupPopulation(type);
             SaveDefault();
+            GenerateGraphData();
         }
         #endregion
         
@@ -38,6 +42,8 @@ namespace interactivegraph.Entities
         public int ActivePatient { get; set; }
 
         public int DefaultPatient { get; set; }
+
+        private bool First { get; set; }
 
         #region Initialization methods for population
         public static Random rand = new Random();
@@ -126,13 +132,48 @@ namespace interactivegraph.Entities
 
         private void GenerateGraphData()
         {
-            Patient.T = 0; Patient.PrevValue = 0;
-
-            //To-do: generate one population data
-            //To-do: update prev value every time generate the patient.
-
-
-            throw new NotImplementedException();
+            PopulationGraph.Clear();
+            if (Graph_Type == GraphType.Phenytoin_Formulation)
+            {
+                var t = 0.0;
+                while (t <= Setting.HorizontalMax)
+                {
+                    PopulationGraph.Add(Enumerable.Repeat(0.0, 25).ToList());
+                    PopulationGraph[PopulationGraph.Count - 1][0] = t;
+                    t += Patient.TimeInterval;
+                }
+                for (int i = 0; i < Patients.Count; i ++)
+                {
+                    Patient.T = 0; Patient.PrevValue = 0;
+                    foreach (var data in PopulationGraph)
+                    {
+                        var value = Calculator.ConcentrationAtTime(data[0], Patients[i], Graph_Type);
+                        data[i + 1] = value;
+                        data[21] += value;
+                        Patient.PrevValue = value;
+                    }
+                }
+            }
+            else
+            {
+                var t = 0.0;
+                var time_interval = 0.25;
+                while (t <= Setting.HorizontalMax)
+                {
+                    var average = 0.0;
+                    var plot = new List<double>() { t };
+                    foreach (var patient in Patients)
+                    {
+                        var value = Calculator.ConcentrationAtTime(t, patient, Graph_Type);
+                        plot.Add(value);
+                        average += value;
+                        Patient.PrevValue = value;
+                    }
+                    plot.Add(average/20.0);
+                    PopulationGraph.Add(plot);
+                    t += time_interval;
+                }
+            }
         }
 
         private void SaveDefault()
@@ -164,7 +205,9 @@ namespace interactivegraph.Entities
 
         public void ChangePopulation()
         {
+            First = false;
             GeneratePatients();
+            GenerateGraphData();
         }
 
         public void OptimizeCondition(Patient p)
@@ -179,7 +222,10 @@ namespace interactivegraph.Entities
 
         public void BackToDefault()
         {
+            if (First) return;
+            First = true;
             RetrieveDefault();
+            GenerateGraphData();
         }
         #endregion
 

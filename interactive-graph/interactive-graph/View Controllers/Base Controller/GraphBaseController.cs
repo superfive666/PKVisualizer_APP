@@ -14,11 +14,15 @@ namespace interactivegraph.View_Controllers.Base_Controller
     public partial class GraphBaseController : UIViewController
     {
         #region View controller attributes here
-        public Population GraphPopulation { get; set; }
+        protected Population GraphPopulation { get; set; }
 
-        public GraphForm Graph_Form { get; set; }
+        protected GraphForm Graph_Form { get; set; }
 
-        private SCIChartSurface _surface;
+        protected SCIChartSurface _surface;
+        #endregion
+
+        #region Public construction here
+        public GraphBaseController(IntPtr handle) : base(handle) { }
         #endregion
 
         #region Common graphical behaviours
@@ -34,8 +38,9 @@ namespace interactivegraph.View_Controllers.Base_Controller
             RefreshGraph();
         }
 
-        protected void OptimizeCondition(Patient _patient)
+        protected void OptimizeCondition()
         {
+            var _patient = GetOptimizedPatient();
             GraphPopulation.OptimizeCondition(_patient);
             RefreshGraph();
         }
@@ -57,34 +62,48 @@ namespace interactivegraph.View_Controllers.Base_Controller
 
         protected void RefreshGraph()
         {
-            void ConstructSinglePatientView(int i)
-            {
-
-                throw new NotImplementedException();
-            }
-
-            void ConstructAllPopulationView()
-            {
-
-                throw new NotImplementedException();
-            }
-
-            switch(Graph_Form)
-            {
-                case GraphForm.SinglePatientView:
-                               ConstructSinglePatientView(GraphPopulation.ActivePatient);
-                               break;
-                case GraphForm.AllPopulationView:
-                               ConstructAllPopulationView();
-                               break;
-                default: throw new InvalidOperationException("Invalid type of graph.");
-            }
-
-            throw new NotImplementedException();
+            _surface.RenderableSeries.Clear();
+            RenderData();
         }
 
+        #region Virtual methods
         protected virtual void ShowPatientData() { }
         protected virtual void ShowPopulationData() { }
+        protected virtual void RenderData()
+        {
+            void PopulateData(int i, bool ave)
+            {
+                var name = ave ? "Average" : "Patient - " + (i + 1).ToString();
+                var _data = new XyDataSeries<Double, Double>() { SeriesName = name };
+                foreach (var data in GraphPopulation.PopulationGraph)
+                {
+                    _data.Append(data[0], data[ave ? 21 : i]);
+                }
+                var _line = new SCIFastLineRenderableSeries();
+                _line.DataSeries = _data;
+                _line.XAxisId = "Time";
+                _line.YAxisId = "Concentration";
+                _surface.RenderableSeries.Add(_line);
+            }
+
+            GraphPopulation = new Population(GraphType.Continuous_Intravenous_Analgesic);
+            if (Graph_Form == GraphForm.SinglePatientView)
+            {
+                PopulateData(GraphPopulation.ActivePatient, false);
+            }
+            else
+            {
+                for (int i = 0; i < GraphPopulation.Patients.Count; i++)
+                {
+                    PopulateData(i, false);
+                }
+                PopulateData(21, true);
+            }
+        }
+        protected virtual void PrepareSetting() { }
+        protected virtual Patient GetOptimizedPatient() { return new Patient(); }
+        #endregion
+
         #endregion
     }
 }
