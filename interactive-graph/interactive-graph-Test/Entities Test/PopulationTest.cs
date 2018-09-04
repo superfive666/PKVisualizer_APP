@@ -335,10 +335,28 @@ namespace interactive_graph_Test.Entities_Test
         }
 
         [Fact]
+        public void Population_TrueFalse_Test()
+        {
+            _population = new Population(GraphType.Continuous_Intravenous_Analgesic);
+            _population.ChangePopulation();
+            _population.BackToDefault();
+            _population.BackToDefault();
+
+            Assert.True(true);
+        }
+
+        [Fact]
         public void Population_GenerateGraphData_Test ()
         {
-            //To-do: update the test when the function is updated
-            Assert.True(true);
+            _population = new Population(GraphType.Continuous_Intravenous_Analgesic);
+            Assert.NotEmpty(_population.PopulationGraph);
+            foreach(var data in _population.PopulationGraph)
+            {
+                Assert.NotEmpty(data);
+                var average = 0.0;
+                for (int i = 1; i < 21; i++) average += data[i];
+                Assert.Equal(average / 20.0, data[21]);
+            }
         }
     }
 }

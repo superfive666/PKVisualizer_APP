@@ -21,8 +21,7 @@ namespace interactivegraph.View_Controllers.Graph_Controller
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
 
-            PrepareData();
-
+            RefreshGraph();
         }
 
         public override void DidReceiveMemoryWarning()

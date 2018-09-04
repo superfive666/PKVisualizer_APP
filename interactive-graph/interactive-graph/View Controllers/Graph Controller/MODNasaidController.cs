@@ -11,6 +11,8 @@ namespace interactivegraph.View_Controllers.Graph_Controller
 {
     public partial class MODNasaidController : GraphBaseController
     {
+        public MODNasaidController(IntPtr handle) : base (handle) { }
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();

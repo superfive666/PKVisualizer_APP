@@ -23,6 +23,8 @@ namespace interactivegraph.View_Controllers.Base_Controller
 
         #region Public construction here
         public GraphBaseController(IntPtr handle) : base(handle) { }
+
+        public GraphBaseController() { }
         #endregion
 
         #region Common graphical behaviours

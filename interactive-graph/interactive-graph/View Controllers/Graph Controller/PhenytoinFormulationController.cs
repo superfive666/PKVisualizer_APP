@@ -11,6 +11,8 @@ namespace interactivegraph.View_Controllers.Graph_Controller
 {
     public partial class PhenytoinFormulationController : GraphBaseController
     {
+        public PhenytoinFormulationController(IntPtr handle) : base (handle) { }
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();

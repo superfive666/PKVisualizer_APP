@@ -190,10 +190,12 @@ namespace interactivegraph.Entities
         private void RetrieveDefault()
         {
             ActivePatient = DefaultPatient;
+            if (First) return;
             for (var i = 0; i < 20; i++)
             {
                 Patients[i].Clone(DefaultPopulation[i]);
             }
+            GenerateGraphData();
         }
         #endregion
 
@@ -218,6 +220,7 @@ namespace interactivegraph.Entities
                 patient.Tau = p.Tau;
                 patient.InfusionRate = p.InfusionRate;
             }
+            GenerateGraphData();
         }
 
         public void BackToDefault()
