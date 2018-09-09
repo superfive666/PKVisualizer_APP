@@ -39,7 +39,7 @@
     },
     "Graph": 
     {
-        "HorizontalMax": 0,
+        "HorizontalMax": 20,
         "VerticalMax": 0
     }
 }

@@ -33,7 +33,8 @@ namespace interactivegraph.Entities
         
         public List<List<double>> SinglePatientGraph { get; set; }
 
-        public List<List<double>> PopulationGraph { get; set; }
+        public List<List<double>> PopulationGraph
+        { get { return PopulationGraph ?? new List<List<double>>(); } }
 
         public GraphSettings Setting { get; set; }
 
